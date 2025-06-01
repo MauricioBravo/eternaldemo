@@ -95,12 +95,6 @@ const { writeContract, data: hash, error } = useWriteContract();
     e.preventDefault();
     
     if (!isConnected || !message.trim()) return;
-    
-    // Verificar que el contrato esté deployado
-    if (CONTRACT_ADDRESS === "0x468167ac3B0b9619C6DCdF74ee576cde3DDAdC69") {
-      alert("⚠️ Contract not deployed yet! Please deploy the smart contract first.");
-      return;
-    }
 
     setIsSubmitting(true);
 
@@ -156,16 +150,6 @@ const { writeContract, data: hash, error } = useWriteContract();
       <h3 className="text-xl font-bold text-white mb-6 flex items-center">
         ✍️ Write Eternal Message
       </h3>
-
-      {/* Contract Status Warning */}
-      {CONTRACT_ADDRESS === "0x468167ac3B0b9619C6DCdF74ee576cde3DDAdC69" && (
-        <div className="mb-6 p-4 bg-red-900/30 border border-red-600/30 rounded-lg">
-          <p className="text-red-300 text-sm">
-            ⚠️ <strong>Smart Contract Not Deployed</strong><br/>
-            Please deploy the EternalWrite contract first and update CONTRACT_ADDRESS
-          </p>
-        </div>
-      )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Message Type Selection */}
@@ -250,9 +234,8 @@ const { writeContract, data: hash, error } = useWriteContract();
           disabled={
             !message.trim() || 
             isSubmitting || 
-            isConfirming ||
-            CONTRACT_ADDRESS === "0x468167ac3B0b9619C6DCdF74ee576cde3DDAdC69"
-          }
+            isConfirming
+        }
           className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100"
         >
           {isSubmitting || isConfirming ? (

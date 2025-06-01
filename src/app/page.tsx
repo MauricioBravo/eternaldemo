@@ -1,5 +1,7 @@
 import { TalismanStatus } from '@/components/TalismanStatus';
 import { MessageForm } from '@/components/MessageForm';
+//import { MessageExplorer } from '@/components/MessageExplorer';
+
 
 export default function Home() {
   return (
