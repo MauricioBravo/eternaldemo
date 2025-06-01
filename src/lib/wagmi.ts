@@ -52,7 +52,7 @@ export const shibuya = defineChain({
   },
   testnet: true,
 });
-
+//comentario
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'demo_project_id';
 
 export const config = getDefaultConfig({
