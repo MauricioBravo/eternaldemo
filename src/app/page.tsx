@@ -1,59 +1,88 @@
 import { TalismanStatus } from '@/components/TalismanStatus';
 import { MessageForm } from '@/components/MessageForm';
-//import { MessageExplorer } from '@/components/MessageExplorer';
-
-
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black">
-      <div className="container mx-auto px-4 py-8">
+    <main className="main-container">
+      {/* Animated background */}
+      <div className="background-animation"></div>
+
+      <div className="content-wrapper">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            ⚡ EternalWrite
-          </h1>
-          <p className="text-xl text-gray-300 mb-4">
-            Immortalize Your Messages on Blockchain
-          </p>
-          <p className="text-sm text-gray-400">
-            Powered by Astar Network • Messages stored forever on Shibuya Testnet
+        <div className="header-section">
+          <div className="logo">⚡</div>
+          <h1 className="main-title">EternalWrite</h1>
+          <p className="subtitle">Inmortalizando Mensajes en Blockchain</p>
+          <p className="description">
+            La primera plataforma Web3 que permite almacenar tus mensajes más importantes 
+            para siempre en blockchain. Declaraciones de amor, testamentos digitales, 
+            mensajes para el futuro - todo asegurado por la tecnología descentralizada.
           </p>
         </div>
 
-        {/* Wallet Connection Status */}
-        <TalismanStatus />
+        {/* Wallet Connection */}
+        <div className="wallet-section">
+          <TalismanStatus />
+        </div>
 
-        {/* Message Writing Interface */}
-        <div className="mt-8">
+        {/* Message Form */}
+        <div className="message-section">
           <MessageForm />
         </div>
 
-        {/* Features Info */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          <div className="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
-            <h3 className="text-lg font-semibold text-white mb-2">🔗 Blockchain Storage</h3>
-            <p className="text-gray-300 text-sm">
-              Your messages are permanently stored on Astar Network blockchain, making them truly eternal and uncensorable.
-            </p>
+        {/* Features Grid */}
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">🔒</div>
+            <h3>Inmutable Forever</h3>
+            <p>Tus mensajes se almacenan en blockchain y no pueden ser eliminados ni modificados jamás</p>
           </div>
           
-          <div className="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
-            <h3 className="text-lg font-semibold text-white mb-2">🔒 Privacy Options</h3>
-            <p className="text-gray-300 text-sm">
-              Choose between public messages visible to all, or private encrypted messages for selected recipients.
-            </p>
+          <div className="feature-card">
+            <div className="feature-icon">🌐</div>
+            <h3>Descentralizado</h3>
+            <p>Powered by Astar Network - sin intermediarios, sin censura, solo tú y la blockchain</p>
           </div>
           
-          
+          <div className="feature-card">
+            <div className="feature-icon">🔐</div>
+            <h3>Cifrado E2E</h3>
+            <p>Mensajes privados con cifrado de extremo a extremo para máxima privacidad</p>
+          </div>
         </div>
 
+        {/* Status Section */}
+        <div className="status-section">
+          <div className="status-card">
+            <h2>Beta Live en Shibuya Testnet</h2>
+            <p>
+              Estamos en fase de pruebas usando Astar Shibuya. 
+              ¡Prueba la escritura de mensajes eternos sin costo real!
+            </p>
+            <div className="status-info">
+              <span className="status-badge">Contract: 0x468167...C69</span>
+              <span>•</span>
+              <span className="status-badge">Network: Shibuya (81)</span>
+            </div>
+          </div>
+        </div>
 
+        {/* Social Media */}
+        <div className="social-section">
+          <a 
+            href="https://instagram.com/eternalwrite" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="instagram-button"
+          >
+            📷
+          </a>
+        </div>
 
         {/* Footer */}
-        <div className="mt-12 text-center text-gray-500 text-sm">
-          <p>EternalWrite - Powered by Polkadotk</p>
-          <p className="mt-1">Wallet support: Talisman, MetaMask, & more</p>
+        <div className="footer-section">
+          <p>EternalWrite - Powered by Polkadot</p>
+          <p>Wallet support: Talisman, MetaMask & more</p>
         </div>
       </div>
     </main>

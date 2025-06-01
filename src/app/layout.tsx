@@ -6,18 +6,18 @@ import { Providers } from '@/components/providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'EternalWrite - Immortalize Your Messages on Blockchain',
-  description: 'Store your messages forever on Astar Network blockchain with end-to-end encryption',
-  keywords: ['blockchain', 'web3', 'astar', 'messages', 'eternal', 'crypto'],
+  title: 'EternalWrite - Inmortalizando Mensajes en Blockchain',
+  description: 'Almacena tus mensajes para siempre en la blockchain de Astar Network con cifrado de extremo a extremo',
+  keywords: ['blockchain', 'web3', 'astar', 'mensajes', 'eterno', 'crypto'],
   authors: [{ name: 'EternalWrite Team' }],
   viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#000000',
+  themeColor: '#f8f9fa',
   icons: {
-    icon: '/favicon.ico',
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
   },
   openGraph: {
-    title: 'EternalWrite - Immortalize Your Messages',
-    description: 'Store your messages forever on blockchain',
+    title: 'EternalWrite - Inmortalizando Mensajes',
+    description: 'Almacena tus mensajes para siempre en blockchain',
     url: 'https://eternalwrite.io',
     siteName: 'EternalWrite',
     images: [
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'EternalWrite - Blockchain Messages',
+        alt: 'EternalWrite - Mensajes en Blockchain',
       },
     ],
-    locale: 'en_US',
+    locale: 'es_ES',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EternalWrite - Immortalize Your Messages',
-    description: 'Store your messages forever on blockchain',
+    title: 'EternalWrite - Inmortalizando Mensajes',
+    description: 'Almacena tus mensajes para siempre en blockchain',
     images: ['/og-image.png'],
   },
 };
@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="es">
       <body className={`${inter.className} antialiased`}>
         <Providers>
           {children}
