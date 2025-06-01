@@ -111,6 +111,7 @@ const { writeContract, data: hash, error } = useWriteContract();
           functionName: 'storeMessage',
           args: [message],
           value,
+          gas: BigInt(500000), // ← Agregar esta línea en ambas llamadas
         });
       } else {
         // Mensaje público
@@ -120,6 +121,7 @@ const { writeContract, data: hash, error } = useWriteContract();
           functionName: 'storeMessage',
           args: [message],
           value,
+          gas: BigInt(500000), // ← Agregar esta línea en ambas llamadas
         });
       }
     } catch (error) {
