@@ -1,7 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { TalismanStatus } from '@/components/TalismanStatus';
 import { MessageForm } from '@/components/MessageForm';
+import { UserMessagesView } from '@/components/UserMessagesView';
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<'write' | 'read'>('write');
+
   return (
     <main className="main-container">
       {/* Animated background */}
@@ -25,9 +31,59 @@ export default function Home() {
           <TalismanStatus />
         </div>
 
-        {/* Message Form */}
+        {/* Navigation Tabs */}
+        <div className="glass-card" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '1rem',
+            borderBottom: '2px solid #e9ecef',
+            marginBottom: '0'
+          }}>
+            <button 
+              onClick={() => setActiveTab('write')}
+              style={{
+                padding: '0.75rem 1.5rem',
+                border: 'none',
+                background: 'none',
+                fontSize: '1rem',
+                fontWeight: '600',
+                color: activeTab === 'write' ? '#0d6efd' : '#6c757d',
+                borderBottom: activeTab === 'write' ? '3px solid #0d6efd' : '3px solid transparent',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              ✍️ Escribir Mensaje
+            </button>
+            <button 
+              onClick={() => setActiveTab('read')}
+              style={{
+                padding: '0.75rem 1.5rem',
+                border: 'none',
+                background: 'none',
+                fontSize: '1rem',
+                fontWeight: '600',
+                color: activeTab === 'read' ? '#0d6efd' : '#6c757d',
+                borderBottom: activeTab === 'read' ? '3px solid #0d6efd' : '3px solid transparent',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              📖 Mis Mensajes
+            </button>
+          </div>
+        </div>
+
+        {/* Tab Content */}
         <div className="message-section">
-          <MessageForm />
+          {activeTab === 'write' && <MessageForm />}
+          {activeTab === 'read' && <UserMessagesView />}
         </div>
 
         {/* Features Grid */}
@@ -70,7 +126,7 @@ export default function Home() {
         {/* Social Media */}
         <div className="social-section">
           <a 
-            href="https://instagram.com/eternalwrite" 
+            href="https://instagram.com/eternalwriteio" 
             target="_blank" 
             rel="noopener noreferrer"
             className="instagram-button"

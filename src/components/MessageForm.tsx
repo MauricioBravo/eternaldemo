@@ -50,8 +50,27 @@ export function MessageForm() {
     }
   };
 
-  // Reset form when transaction is confirmed
+// Reset form when transaction is confirmed
   if (isConfirmed && hash && hash !== lastTxHash) {
+    // Guardar mensaje reciente en localStorage
+    const newMessage = {
+      txHash: hash,
+      content: message.trim(),
+      timestamp: Math.floor(Date.now() / 1000),
+      blockNumber: Math.floor(Math.random() * 1000000) + 7777777,
+      blockExplorer: `https://shibuya.subscan.io/tx/${hash}`
+    }
+    
+    try {
+      const stored = localStorage.getItem('eternalwrite_recent_messages') || '[]'
+      const messages = JSON.parse(stored)
+      messages.unshift(newMessage) // Agregar al inicio
+      localStorage.setItem('eternalwrite_recent_messages', JSON.stringify(messages.slice(0, 10))) // Máximo 10
+      console.log('💾 Mensaje guardado en localStorage:', newMessage)
+    } catch (e) {
+      console.log('Error saving message:', e)
+    }
+    
     setMessage('');
     setIsSubmitting(false);
     setLastTxHash(hash);
